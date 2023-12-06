@@ -16,7 +16,7 @@
 		>
 			<Iconify icon="pajamas:nature" class="text-white absolute text-3xl" />
 		</div>
-		<div class="p-4 grid gap-2">
+		<div class="p-4 grid gap-2 w-full">
 			<h3 class={title ?? 'capitalize'}>{title ?? faker.lorem.words({ min: 3, max: 6 })}</h3>
 			<p>{text}</p>
 			<Button class="mt-3">{buttonText}</Button>
