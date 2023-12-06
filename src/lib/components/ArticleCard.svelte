@@ -2,7 +2,7 @@
 	import { Card } from 'konsta/svelte';
 	import { faker } from '@faker-js/faker';
 	export let image: string = faker.image.url();
-	export let title: string = faker.lorem.lines({ min: 1, max: 1 });
+	export let title: string | undefined = undefined;
 	export let text: string = faker.lorem.paragraphs(1);
 </script>
 
@@ -13,12 +13,12 @@
 			style="background-image: url({image})"
 		></div>
 		<div class="p-4 grid gap-2">
-			<h3>{title}</h3>
+			<h3 class={title ?? 'capitalize'}>{title ?? faker.lorem.words({ min: 5, max: 10 })}</h3>
 			<p>{text}</p>
 		</div>
 	</div>
 
 	<div slot="footer">
-    <slot name='footer'></slot>
+		<slot name="footer" />
 	</div>
 </Card>

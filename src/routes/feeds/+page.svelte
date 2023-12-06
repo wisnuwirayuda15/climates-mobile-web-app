@@ -41,7 +41,9 @@
 		}}
 		onClick={() => {
 			createPost = true;
-			postForm.focus();
+			setTimeout(() => {
+				postForm.focus();
+			}, 500);
 		}}
 		class="fixed right-4-safe bottom-24-safe z-30 rounded-full"
 	>

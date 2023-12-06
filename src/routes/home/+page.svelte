@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Page, Block, Button, Link, Navbar, Dialog, DialogButton } from 'konsta/svelte';
 	import { onMount } from 'svelte';
+	import { faker } from '@faker-js/faker';
 	import PostCard from '$lib/components/PostCard.svelte';
 	import ArticleCard from '$lib/components/ArticleCard.svelte';
 	import Avatar from '$lib/components/Avatar.svelte';
@@ -61,16 +62,9 @@
 		</Button>
 	</Navbar>
 
-	<Dialog class="rounded-lg" opened={dialog} onBackdropClick={() => (dialog = false)}>
-		<svelte:fragment slot="title">Sorry...</svelte:fragment>
-		This feature is not available yet.
-		<svelte:fragment slot="buttons">
-			<DialogButton onClick={() => (dialog = false)}>OK</DialogButton>
-		</svelte:fragment>
-	</Dialog>
-
-	<div class="grid grid-cols-1 gap-7 mt-7">
+	<div class="grid grid-cols-1 gap-7">
 		<Block margin="m-0">
+			<img src={faker.image.url()} alt="home" class="rounded-md h-40 w-full my-8 object-cover shadow-md" />
 			<div class="flex items-center justify-between mb-3">
 				<h3>Today's Update</h3>
 				<Button inline href="/feeds">See</Button>
@@ -139,4 +133,12 @@
 		</div>
 	</div>
 	<div class="mb-44"></div>
+
+	<Dialog class="rounded-lg" opened={dialog} onBackdropClick={() => (dialog = false)}>
+		<svelte:fragment slot="title">Sorry...</svelte:fragment>
+		This feature is not available yet.
+		<svelte:fragment slot="buttons">
+			<DialogButton onClick={() => (dialog = false)}>OK</DialogButton>
+		</svelte:fragment>
+	</Dialog>
 </Page>

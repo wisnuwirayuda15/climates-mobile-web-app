@@ -1,9 +1,14 @@
 <script lang="ts">
-	import { Page, Block, Button, Navbar, Fab, Popup } from 'konsta/svelte';
-	import PostCard from '$lib/components/PostCard.svelte';
+	import { Page, Block, Button, Navbar } from 'konsta/svelte';
+	import { faker } from '@faker-js/faker';
 	import Avatar from '$lib/components/Avatar.svelte';
-	import FormInput from '$lib/components/FormInput.svelte';
 	import Iconify from '@iconify/svelte';
+
+	const title: string = faker.lorem.words({ min: 5, max: 10 });
+	const text: string = faker.lorem.paragraphs(30);
+	const img: string = faker.image.url();
+	const views: string = faker.finance.amount({ min: 1, max: 10, dec: 3 });
+	const date: string = `${faker.number.int({ min: 1, max: 31 })} ${faker.date.month()} 2023`;
 </script>
 
 <Page>
@@ -22,6 +27,21 @@
 	</Navbar>
 
 	<Block>
-		
+		<div class="grid grid-cols-1 gap-7">
+			<div>
+				<img src={img} alt="home" class="rounded-md h-60 w-full object-cover shadow-md" />
+				<h3 class="mt-3 capitalize">{title}</h3>
+			</div>
+
+			<div>
+				<div class="flex items-center justify-between">
+					<Avatar />
+					<span class="text-gray-600">{date}</span>
+				</div>
+				<p class="mt-3 text-gray-600">{views} views</p>
+			</div>
+
+			<p>{text}</p>
+		</div>
 	</Block>
 </Page>
