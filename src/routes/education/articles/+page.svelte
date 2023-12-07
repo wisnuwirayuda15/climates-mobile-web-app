@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Block, Link, Button } from 'konsta/svelte';
+	import { Block, Button } from 'konsta/svelte';
 	import ArticleCard from '$lib/components/ArticleCard.svelte';
 	import { faker } from '@faker-js/faker';
 </script>

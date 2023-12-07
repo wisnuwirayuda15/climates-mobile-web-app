@@ -4,14 +4,17 @@
 <head>
   <meta charset="utf-8" />
   <link rel="icon" href="%sveltekit.assets%/favicon.png" />
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1" />
-     -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
   %sveltekit.head%
 </head>
 
 <body data-sveltekit-preload-data="hover">
-  <div style="display: contents">%sveltekit.body%</div>
+  <div class="contents md:hidden">%sveltekit.body%</div>
+
+  <div class="hidden md:block text-center">
+    <h1>We are sorry, this web app is only available for mobile phone with potrait mode.</h1>
+    <!-- <h1>You can't use this website in landscape mode.</h1> -->
+  </div>
 </body>
 
 </html>

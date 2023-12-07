@@ -1,13 +1,15 @@
 <script lang="ts">
+	import { Page, Button, Block, Preloader } from 'konsta/svelte';
+	import { goto } from '$app/navigation';
 	import LoginImage from '$lib/img/login.svg';
 	import Google from '$lib/icon/google.svg';
 	import Facebook from '$lib/icon/facebook.svg';
 	import FormInput from '$lib/components/FormInput.svelte';
-	import { Page, Button, Block } from 'konsta/svelte';
-	import { goto } from '$app/navigation';
 
 	let passType: string = 'password';
 	let passIcon: string = 'mdi:eye';
+
+	let loading: boolean = false;
 
 	function showPassword() {
 		passType = passType === 'password' ? 'text' : 'password';
@@ -28,6 +30,7 @@
 			<form
 				class="grid grid-cols-1 gap-3"
 				on:submit|preventDefault={() => {
+					loading = true;
 					goto('home');
 				}}
 			>
@@ -54,7 +57,13 @@
 
 				<div>
 					<p class="text-end text-primary font-bold mb-1">Forgot password?</p>
-					<Button raised>Login</Button>
+					<Button raised>
+						{#if loading}
+							<Preloader size="w-5 h-5" class="text-md-light-surface-1" />
+						{:else}
+							Login
+						{/if}
+					</Button>
 				</div>
 			</form>
 

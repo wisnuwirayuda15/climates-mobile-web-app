@@ -6,11 +6,9 @@
 	import '../app.css';
 
 	const withTabbar = ['/home', '/feeds', '/transaction', '/profile'];
-
 	const navigateAnimation: boolean = true;
 
 	onNavigate(() => {
-    console.log($page.url.pathname);
 		if (document.startViewTransition && navigateAnimation) {
 			return new Promise((resolve) => {
 				document.startViewTransition &&
@@ -27,7 +25,7 @@
 <App theme="material" safeAreas class="select-none">
   <slot />
 
-	{#if withTabbar.includes($page.url.pathname)}
-		<CustomTabbar></CustomTabbar>
-	{/if}
+  {#if withTabbar.includes($page.url.pathname)}
+    <CustomTabbar></CustomTabbar>
+  {/if}
 </App>
