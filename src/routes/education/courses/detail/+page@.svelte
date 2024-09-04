@@ -18,6 +18,7 @@
 	import Thanks from '$lib/img/thanks.svg';
 	import FormInput from '$lib/components/FormInput.svelte';
 	import CustomDialog from '$lib/components/CustomDialog.svelte';
+	import type { SvelteComponent } from 'svelte';
 
 	const course: string = faker.lorem.words({ min: 5, max: 7 });
 	const code: string = faker.number.int({ min: 100000 }).toString();
@@ -31,7 +32,7 @@
 	let copy: boolean = false;
 	let thanks: boolean = false;
 	let purchased: boolean = false;
-	let codeInput: any;
+	let codeInput: SvelteComponent;
 </script>
 
 <Page>

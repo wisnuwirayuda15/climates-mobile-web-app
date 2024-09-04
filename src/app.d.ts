@@ -1,7 +1,5 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
-import 'unplugin-icons/types/svelte';
-
 declare global {
   interface Document {
     startViewTransition?(callback: () => Promise<void>): void
